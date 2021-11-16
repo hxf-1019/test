@@ -1,0 +1,7 @@
+[core]
+	autocrlf = false
+[http]
+	sslVerify = false
+[user]
+	name = hxf-1019
+	email = 1096130548@qq.com

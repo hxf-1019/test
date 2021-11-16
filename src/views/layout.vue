@@ -78,16 +78,16 @@
       this.getRouteBran()
     },
     watch:{
-      '$route'(to,from){
+      '$route'(to,from) {
         this.getRouteBran()
       }
     },
     computed: {
       slideMenuActive: {
-        get(){
+        get() {
           return this.navBar.list[this.navBar.active].subActive || '0'
         },
-        set(val){
+        set(val) {
           return this.navBar.list[this.navBar.active].subActive = val
           console.log(val)
         }
@@ -98,19 +98,19 @@
     },
     methods: {
       // 获取面包屑导航
-      getRouteBran(){
-        let b = this.$route.matched.filter(v=>v.name)
+      getRouteBran() {
+        let b = this.$route.matched.filter(v => v.name)
         let arr = []
         b.forEach((v,k) => {
           // 过滤layout和index
-          if(v.name === 'index' || v.name === 'layout')
+          if (v.name === 'index' || v.name === 'layout')
           arr.push({
             name:v.name,
             path:v.path,
             title:v.meta.title
           })
-        });
-        if(arr.length >0){
+        })
+        if (arr.length >0) {
           arr.unshift({name:'index',path:'/index',title:'后台首页'})
         }
         this.bran = arr
@@ -123,11 +123,11 @@
         this.slideMenuActive = key
         // 跳转到指定页面
         this.$route.push({
-          name:
+          name: this.slideMenus[key].pathname
         })
       }
     }
-  }
+}
 </script>
 <style>
 
